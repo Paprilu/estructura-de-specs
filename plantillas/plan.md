@@ -1,13 +1,13 @@
 <!--
 PLANTILLA DE PLAN DE IMPLEMENTACIÓN
 
-Se escribe ANTES de tocar código, y se escribe para que lo ejecute otro agente
-sin volver a preguntar nada.
+Se escribe ANTES de tocar código, y se escribe para que lo ejecute otra persona
+—o otro agente— sin volver a preguntar nada.
 
 Antes de entregarlo, cuatro controles:
   1. ¿Cada task cabe en un commit? Si no, son dos tasks.
   2. ¿`Interfaces` dice qué produce cada task y QUÉ TASK lo consume?
-  3. ¿El código de ejemplo está libre de `as` para forzar tipos?
+  3. ¿El código de ejemplo respeta las prohibiciones de los Global Constraints?
   4. ¿El baseline de pruebas está escrito, para que un fallo ajeno se reconozca
      como ajeno?
 
@@ -16,10 +16,11 @@ Borrá este comentario y la task de ejemplo cuando escribas las reales.
 
 # <Categoría>: <tema> — Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use
-> superpowers:subagent-driven-development (recommended) or
-> superpowers:executing-plans to implement this plan task-by-task.
-> Steps use checkbox (`- [ ]`) syntax for tracking.
+> **Para quien ejecute este plan:** implementalo **task por task**, en orden, y
+> marcá cada checkbox (`- [ ]`) al cerrarla. No adelantes tasks siguientes: cada
+> una declara en `Interfaces` qué necesita de las anteriores.
+> <!-- Si trabajás con un agente con skills de proceso, acá va la línea que le
+> exige usar la de ejecución de planes. -->
 
 **Goal:** <una frase: qué queda funcionando cuando esto termina>
 
@@ -44,12 +45,12 @@ que transcribirlo dentro del plan; acá van sólo las adaptaciones, literales.
 - **Worktree:** todo ocurre en `<ruta del worktree>` (rama `<rama>`). Nunca
   editar por la ruta del checkout principal.
 - **Capas:** <qué importa qué, y qué no puede importar nada del framework>.
-- **Prohibido `as`** para forzar tipos.
-- **Los controles de UI salen de `<carpeta del sistema de diseño>`**, nunca
+- **Prohibido forzar tipos** <con el mecanismo que corresponda al lenguaje>.
+- **Los componentes de UI salen de `<carpeta del sistema de diseño>`**, nunca
   escritos a mano.
-- **Idioma:** <el confirmado, con la variante: español de Costa Rica, voseo>.
-- **Fixtures de test** con prefijo `__test__`, limpiadas por el propio test.
-  Las filas de semilla no se mutan.
+- **Idioma:** <el confirmado en la §0, con su variante regional>.
+- **Fixtures de prueba** con prefijo `<prefijo reservado, p. ej. __test__>`,
+  limpiadas por la propia prueba. Los datos de semilla no se mutan.
 - **Baseline antes de empezar:** <N tests, M archivos, 0 fallos>. Si aparecen
   fallos que no son tuyos, reportalos con nombre y mensaje; no los declares
   *flaky* sin evidencia.
@@ -72,7 +73,8 @@ que transcribirlo dentro del plan; acá van sólo las adaptaciones, literales.
 <!-- El test va literal acá, no descrito. Los comentarios dentro del test dicen
 qué protege cada aserción. -->
 
-```ts
+```
+<el código, literal>
 ```
 
 - [ ] **Step 2: Correr el test para verificar que falla**
@@ -88,7 +90,8 @@ Expected: FALLA con <el mensaje esperado, literal>.
 <!-- El código literal, y las advertencias de lo que NO hay que re-declarar o
 duplicar porque ya existe. -->
 
-```ts
+```
+<el código, literal>
 ```
 
 - [ ] **Step 4: Correr el test y verlo verde**
@@ -100,11 +103,11 @@ duplicar porque ya existe. -->
 - [ ] **Step 5: Gate de tipos**
 
 ```bash
-npx tsc --noEmit
+<el comando del chequeo de tipos del proyecto>
 ```
 
-<!-- El corredor de pruebas no typechequea. Este gate va en cada task, no una
-vez al final. -->
+<!-- Si el corredor de pruebas no typechequea —muchos no lo hacen—, este gate es
+propio y va en CADA task, no una vez al final. -->
 
 ---
 
