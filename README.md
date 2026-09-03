@@ -12,6 +12,14 @@ dos cosas.
 > contexto está tomada todavía por el hecho de aparecer acá. Las reglas propias
 > del proyecto viven en **su** archivo de instrucciones (`CLAUDE.md`,
 > `AGENTS.md` o equivalente), no en este documento.
+>
+> **A quién le habla.** Todo lo que sigue está escrito en imperativo dirigido a
+> **quien ejecuta el ciclo** —el agente, o la persona que haga de tal—, no a
+> quien pide el trabajo: «creá la carpeta», «preguntá y confirmá», «pegá la
+> salida» son todas suyas, y no hay que encargárselas. Lo único que requiere a
+> una persona son los pasos que la §10 manda listar aparte —un panel de
+> terceros, una variable de producción, un correo—; si un paso no está en esa
+> lista, no es manual.
 
 ## Qué hay en este repo
 
@@ -21,8 +29,9 @@ dos cosas.
 | `plantillas/requirements.md` | El esqueleto de la especificación, para llenar durante el brainstorming. |
 | `plantillas/plan.md` | El esqueleto del plan de implementación, con una task de ejemplo. |
 
-Para arrancar un sub-proyecto: creá `specs/<categoría>/<YYYY-MM-DD>-<tema>/` en
-el repo del proyecto y copiá las dos plantillas ahí.
+Para arrancar un sub-proyecto, **quien ejecuta** crea
+`specs/<categoría>/<YYYY-MM-DD>-<tema>/` en el repo del proyecto y copia ahí las
+dos plantillas. Es la primera parte del paso 1, no un encargo aparte.
 
 ---
 
